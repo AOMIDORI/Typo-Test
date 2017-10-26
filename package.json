@@ -4,16 +4,15 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng server",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "heroku-postbuild": "ng build --aot -prod",
+    "deploy": "git push origin master && git push heroku master"
   },
-  "engines": {
-    "node": "6.11.1",
-    "npm": "3.10.9"
-  },
+
   "private": true,
   "dependencies": {
     "@angular/animations": "^4.4.6",
@@ -53,5 +52,9 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.3.3"
+  },
+  "engines":{
+    "node":"8.8.1",
+    "yarn": "0.23.3"
   }
 }
