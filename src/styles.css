@@ -25,6 +25,9 @@ footer p{
 .home-cover{
   padding-top: 10px;
 }
+.tab-text-content{
+  padding: 40px 5px 60px 5px;
+}
 
 #text-body{
   display: none;
