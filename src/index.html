@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,400italic">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js"></script>
    <script src="https://raw.githubusercontent.com/EvanHahn/HumanizeDuration.js/master/humanize-duration.js"></script>
@@ -25,7 +25,7 @@
     var ranWeights = [];
 
     function generateRanWeights(){
-      var weights = [100,200,300,400],
+      var weights = [100,300,400,500],
           ii = weights.length,
           j = 0;
       while (ii--) {
@@ -33,7 +33,14 @@
           ranWeights.push(weights[j]);
           weights.splice(j,1);
       }
-      document.getElementById("ran-font-weight").innerHTML = ranWeights[0] + ","+ ranWeights[1] +","+ ranWeights[2] +","+ranWeights[3];
+      document.getElementById("ran-font-weight").innerHTML = weightName(ranWeights[0]) + ", "+ weightName(ranWeights[1]) +", "+ weightName(ranWeights[2]) +", "+weightName(ranWeights[3]);
+    }
+
+    function weightName(weight){
+      if(weight==100) return "Thin";
+      else if(weight ==300) return "Light";
+      else if(weight == 400) return "Regular";
+      else return "Medium";
     }
 
     function startTimer(){

@@ -4,6 +4,9 @@
 body{
   font-family: 'Roboto', sans-serif;
 }
+body p{
+  font-size: 1.2em;
+}
 main{
   margin: 40px 20px 10px 20px;
 }

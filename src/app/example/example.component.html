@@ -1,10 +1,11 @@
 <div id="test-end" style="display: none;">
   <a mat-button routerLink="/home">HOME</a>
   <main>
-    <p>The order of font weight this time:</p>
+    <h2>Done!</h2>
+    <p style="font-weight: 300; font-size: 1em;">The order of font weight this time:</p>
     <p id="ran-font-weight"></p>
     <br><br><p> Thank you very much! </p>
-    <p> Have a nice day. </p>
+    <p style="font-weight: 300; font-size: 1em;"> Now you can share your feelings about the reading tasks. We really want to hear thoughts from you!</p>
   </main>
 </div>
 
@@ -52,7 +53,7 @@
       </div>
 
       <button mat-raised-button onclick="endTimer();" id="end-btn">Done reading</button>
-      <p id="all-time"></p>
+      <p id="all-time" style="font-weight: 300 !important; "></p>
       <button mat-raised-button onclick="nextReading();" id = "next-btn">Next one</button>
     </div>
 
