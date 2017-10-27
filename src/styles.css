@@ -2,8 +2,6 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body{
-  height: 100%;
-  width: 100%;
   font-family: 'Roboto', sans-serif;
 }
 main{
@@ -26,4 +24,17 @@ footer p{
 
 .home-cover{
   padding-top: 10px;
+}
+
+#text-body{
+  display: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: 300;
+}
+#example-text, #reading1, #reading2, #reading3, #reading4{
+  display: none;
+}
+#next-btn{
+  display: none;
 }

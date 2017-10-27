@@ -10,12 +10,93 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,400italic">
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js"></script>
+   <script src="https://raw.githubusercontent.com/EvanHahn/HumanizeDuration.js/master/humanize-duration.js"></script>
+  <script src="angular-timer.min.js"></script>
+
 </head>
 <body>
   <app-root></app-root>
+  <div class="text-body"></div>
+  <script>
+    var tBegin;
+    var count=0; //0:example, 1:reading1 ...
+    var weight = 300;
+    var ranWeights = [];
+
+    function generateRanWeights(){
+      var weights = [100,200,300,400],
+          ii = weights.length,
+          j = 0;
+      while (ii--) {
+          j = Math.floor(Math.random() * (ii+1));
+          ranWeights.push(weights[j]);
+          weights.splice(j,1);
+      }
+      document.getElementById("ran-font-weight").innerHTML = ranWeights[0] + ","+ ranWeights[1] +","+ ranWeights[2] +","+ranWeights[3];
+    }
+
+    function startTimer(){
+      tBegin = new Date();
+      document.getElementById("text-body").style.display="block";
+      document.getElementById("end-btn").style.display="block";
+      document.getElementById("start-btn").style.display = "none";
+      document.getElementById("start-intro").style.display = "none";
+      if(count == 0 )      {
+        document.getElementById("example-text").style.display="block";
+        generateRanWeights();
+      }
+      else if(count == 1)  {
+        document.getElementById("reading1").style.display = "block";
+      }
+      else if(count == 2)  {
+        document.getElementById("reading2").style.display = "block";
+      }
+      else if(count == 3)  document.getElementById("reading3").style.display = "block";
+      else if(count == 4)  {
+        document.getElementById("reading4").style.display = "block";
+        document.getElementById("start-intro").style.display = "block";
+      }
+
+
+    }
+    function endTimer(){
+      var allTime = Math.abs(new Date() - tBegin);
+      document.getElementById("all-time").innerHTML = "<strong>Total time: </strong><br>" + allTime + " ms";
+      document.getElementById("all-time").style.display = "block";
+      document.getElementById("end-btn").style.display = "none";
+      document.getElementById("next-btn").style.display = "block";
+    }
+    function nextReading(){
+      if (count>=4) endTest();
+      else {
+        count ++;
+        document.getElementById("start-btn").style.display="block";
+        document.getElementById("example-text").style.display = "none";
+        document.getElementById("reading1").style.display = "none";
+        document.getElementById("reading2").style.display = "none";
+        document.getElementById("reading3").style.display = "none";
+        document.getElementById("reading4").style.display = "none";
+        document.getElementById("next-btn").style.display = "none";
+        document.getElementById("all-time").style.display = "none";
+        setFontWeight();
+      }
+    }
+    function endTest(){
+      count = 0;
+      ranWeights =  [];
+      document.getElementById("test-end").style.display = "block";
+      document.getElementById("text-body").style.display = "none";
+    }
+    function setFontWeight(){
+      weight = ranWeights[count-1];
+      document.getElementById("text-body").style.fontWeight=weight;
+    }
+
+
+  </script>
+
 </body>
-
-
 
 
 </html>
